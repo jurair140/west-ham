@@ -1,0 +1,363 @@
+/* ============================================================
+   West Ham Surplus Store – Link Page Styles
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f5f4f0;
+  --bg-card: #ffffff;
+  --border: rgba(180, 145, 60, 0.25);
+  --border-hover: rgba(180, 145, 60, 0.65);
+  --gold: #b4913c;
+  --gold-light: #d4af5a;
+  --gold-dark: #8a6e2a;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --text-muted: #9e9e9e;
+  --shadow-soft: 0 2px 20px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 32px rgba(180,145,60,0.18);
+  --radius: 18px;
+  --radius-sm: 12px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 40px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Background animated particles ─────────────── */
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180,145,60,0.12) 0%, transparent 70%);
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-120px) scale(1.2); opacity: 0; }
+}
+
+/* ── Layout container ───────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Logo card ──────────────────────────────────── */
+.logo-card {
+  width: 140px;
+  height: 140px;
+  background: #111111;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(180,145,60,0.2);
+  margin-bottom: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: logoEntrance 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+@keyframes logoEntrance {
+  from { opacity: 0; transform: scale(0.6) translateY(-20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.logo-card:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2), 0 0 0 2px var(--gold);
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.logo-card:hover .logo-img {
+  transform: scale(1.05);
+}
+
+/* ── Brand typography ───────────────────────────── */
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  text-align: center;
+  animation: fadeSlideUp 0.6s 0.1s ease both;
+  line-height: 1.1;
+}
+
+.brand-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 400;
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  animation: fadeSlideUp 0.6s 0.15s ease both;
+}
+
+.brand-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 36px;
+  animation: fadeSlideUp 0.6s 0.2s ease both;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Links section ──────────────────────────────── */
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+/* ── Individual link card ───────────────────────── */
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.22s cubic-bezier(0.34,1.56,0.64,1),
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+  position: relative;
+  overflow: hidden;
+  animation: cardEntrance 0.5s ease both;
+}
+
+.link-card:nth-child(1) { animation-delay: 0.25s; }
+.link-card:nth-child(2) { animation-delay: 0.35s; }
+.link-card:nth-child(3) { animation-delay: 0.45s; }
+.link-card:nth-child(4) { animation-delay: 0.55s; }
+
+@keyframes cardEntrance {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Shimmer effect on hover */
+.link-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(180,145,60,0.06), transparent);
+  transition: left 0.5s ease;
+}
+
+.link-card:hover::before {
+  left: 150%;
+}
+
+.link-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-hover);
+  background: linear-gradient(135deg, #ffffff 0%, #fefbf2 100%);
+}
+
+.link-card:active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Disabled state */
+.link-card--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ── Icons ──────────────────────────────────────── */
+.link-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.link-card:hover .link-icon {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.link-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.instagram-icon {
+  background: rgba(180,145,60,0.08);
+  color: var(--gold);
+}
+
+.whatsapp-icon {
+  background: rgba(180,145,60,0.08);
+  color: var(--gold);
+}
+
+.star-icon {
+  background: rgba(180,145,60,0.08);
+  color: var(--gold);
+}
+
+/* ── Link text ──────────────────────────────────── */
+.link-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.link-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.link-handle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* ── Arrow ──────────────────────────────────────── */
+.link-arrow {
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  line-height: 1;
+  opacity: 0.5;
+  transform: translateX(0);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.link-card:hover .link-arrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* ── Footer ─────────────────────────────────────── */
+.footer {
+  text-align: center;
+  animation: fadeSlideUp 0.6s 0.65s ease both;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+
+.footer-dev {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--gold-dark);
+  text-decoration: underline;
+}
+
+/* ── Responsive tweaks ──────────────────────────── */
+@media (max-width: 400px) {
+  body {
+    padding: 36px 12px 32px;
+  }
+  .logo-card {
+    width: 118px;
+    height: 118px;
+    border-radius: 22px;
+  }
+  .link-card {
+    padding: 15px 16px;
+    gap: 12px;
+  }
+  .link-icon {
+    width: 38px;
+    height: 38px;
+  }
+  .link-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
