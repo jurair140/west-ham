@@ -2,7 +2,9 @@
    West Ham Surplus Store – Link Page Styles
    ============================================================ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,8 +21,8 @@
   --text-primary: #1a1a1a;
   --text-secondary: #6b6b6b;
   --text-muted: #9e9e9e;
-  --shadow-soft: 0 2px 20px rgba(0,0,0,0.06);
-  --shadow-hover: 0 8px 32px rgba(180,145,60,0.18);
+  --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 8px 32px rgba(180, 145, 60, 0.18);
   --radius: 18px;
   --radius-sm: 12px;
 }
@@ -31,7 +33,7 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg);
+  background: #111111;
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
@@ -54,15 +56,28 @@ body {
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(180,145,60,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(180, 145, 60, 0.12) 0%, transparent 70%);
   animation: floatParticle linear infinite;
 }
 
 @keyframes floatParticle {
-  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 0.6; }
-  100% { transform: translateY(-120px) scale(1.2); opacity: 0; }
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-120px) scale(1.2);
+    opacity: 0;
+  }
 }
 
 /* ── Layout container ───────────────────────────── */
@@ -87,20 +102,27 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(180,145,60,0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(180, 145, 60, 0.2);
   margin-bottom: 24px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: logoEntrance 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+  animation: logoEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 @keyframes logoEntrance {
-  from { opacity: 0; transform: scale(0.6) translateY(-20px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .logo-card:hover {
   transform: scale(1.04) rotate(-1deg);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.2), 0 0 0 2px var(--gold);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2), 0 0 0 2px var(--gold);
 }
 
 .logo-img {
@@ -120,7 +142,7 @@ body {
   font-size: clamp(2rem, 8vw, 2.6rem);
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--text-primary);
+  color: white;
   text-align: center;
   animation: fadeSlideUp 0.6s 0.1s ease both;
   line-height: 1.1;
@@ -130,7 +152,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.1rem, 4vw, 1.4rem);
   font-weight: 400;
-  color: var(--gold);
+  color: white;
   text-align: center;
   letter-spacing: 0.08em;
   margin-top: 4px;
@@ -151,8 +173,15 @@ body {
 }
 
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Links section ──────────────────────────────── */
@@ -170,14 +199,14 @@ body {
   align-items: center;
   gap: 16px;
   padding: 18px 20px;
-  background: var(--bg-card);
+  background: rgb(237, 232, 232);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
   text-decoration: none;
   color: var(--text-primary);
   box-shadow: var(--shadow-soft);
   transition:
-    transform 0.22s cubic-bezier(0.34,1.56,0.64,1),
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.22s ease,
     border-color 0.22s ease,
     background 0.22s ease;
@@ -186,14 +215,32 @@ body {
   animation: cardEntrance 0.5s ease both;
 }
 
-.link-card:nth-child(1) { animation-delay: 0.25s; }
-.link-card:nth-child(2) { animation-delay: 0.35s; }
-.link-card:nth-child(3) { animation-delay: 0.45s; }
-.link-card:nth-child(4) { animation-delay: 0.55s; }
+.link-card:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.link-card:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.link-card:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+.link-card:nth-child(4) {
+  animation-delay: 0.55s;
+}
 
 @keyframes cardEntrance {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Shimmer effect on hover */
@@ -204,7 +251,7 @@ body {
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(180,145,60,0.06), transparent);
+  background: linear-gradient(90deg, transparent, rgba(180, 145, 60, 0.06), transparent);
   transition: left 0.5s ease;
 }
 
@@ -253,17 +300,17 @@ body {
 }
 
 .instagram-icon {
-  background: rgba(180,145,60,0.08);
+  background: rgba(180, 145, 60, 0.08);
   color: var(--gold);
 }
 
 .whatsapp-icon {
-  background: rgba(180,145,60,0.08);
+  background: rgba(180, 145, 60, 0.08);
   color: var(--gold);
 }
 
 .star-icon {
-  background: rgba(180,145,60,0.08);
+  background: rgba(180, 145, 60, 0.08);
   color: var(--gold);
 }
 
@@ -343,19 +390,23 @@ body {
   body {
     padding: 36px 12px 32px;
   }
+
   .logo-card {
     width: 118px;
     height: 118px;
     border-radius: 22px;
   }
+
   .link-card {
     padding: 15px 16px;
     gap: 12px;
   }
+
   .link-icon {
     width: 38px;
     height: 38px;
   }
+
   .link-icon svg {
     width: 18px;
     height: 18px;
